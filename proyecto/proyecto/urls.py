@@ -21,11 +21,19 @@ from Login import views as Login
 from Paciente import views as Paciente
 from Doctor import views as Doctor
 from Admin import views as Admin
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Inicio.hello),
     path('login/', Login.helloLogin),
     path('Paciente/', Paciente.hello),
+    path('Paciente/Perfil/', Paciente.hello),
     path('Doctor/', Doctor.hello),
+    path('Doctor/Perfil/', Doctor.hello),
+    path('Doctor/Consultas-Respondidas/', Doctor.hello),
     path('Admin/', Admin.hello),
+    path('Admin/Perfil/', Admin.hello),
+    path('Admin/Consultas-Respondidas/', Admin.hello),
+    path('Admin/Registro-Pacientes/', Admin.hello),
+    path('Admin/Registro-Doctores/', Admin.hello),
 ]
