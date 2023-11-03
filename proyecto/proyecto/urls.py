@@ -25,7 +25,7 @@ from Admin import views as Admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Inicio.hello),
-    path('login/', Login.helloLogin),
+    path('login/', Login.registrar_usuario),
     path('Paciente/', Paciente.hello, name="pacienteInicio"),
     path('Paciente/Perfil/', Paciente.hello, name="pacientePerfil"),
     path('Doctor/', Doctor.hello, name="doctorInicio"),
