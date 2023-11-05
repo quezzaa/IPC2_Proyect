@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'tmp.html' %}
 
-  <link rel="icon" href="images/icono.png">
-
-  <title>La eterna Primavera</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body style="background-color: rgb(252, 252, 252);">
-  <!--Encabezado-->
-  <nav class="navbar navbar-expand-lg" style="background-color: rgb(182, 223, 241); font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" >
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"> <img src="images/icono.png" alt="LogoGeneral" width="auto" height="25"> La Eterna Primavera</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="formulario.html">Formulario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contacto.html">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="historia.html">Historia</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+{% block content %}
   <!--Carrusel de Imagenes-->
   <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
@@ -44,13 +10,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/Carrusel1.png" class="d-block w-100" alt="...">
+        <img src="src/images/Carrusel1.png" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="images/Carrusel2.png" class="d-block w-100" alt="...">
+        <img src="src/images/Carrusel2.png" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="images/Carrusel3.png" class="d-block w-100" alt="...">
+        <img src="src/images/Carrusel3.png" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -104,7 +70,7 @@
   <!--Cartas 2-->
   <div class="card-group text-center" >
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="images/Registrate.png" class="card-img-top" alt="...">
+      <img src="src/images/Registrate.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Formulario</h5>
         <p class="card-text">Completa nuestro sencillo y seguro formulario de registro para acceder a una experiencia personalizada. Únete a nuestra comunidad y comienza tu viaje hacia el bienestar.</p>
@@ -113,7 +79,7 @@
       </div>
     </div>
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="images/ConcatoIdex.png" class="card-img-top" alt="...">
+      <img src="src/images/ConcatoIdex.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Conacto</h5>
         <p class="card-text">Conéctate con nosotros a través de nuestro formulario de contacto. Estamos aquí para responder tus preguntas y brindarte el apoyo que necesitas. ¡Esperamos escucharte pronto!</p>
@@ -122,7 +88,7 @@
       </div>
     </div>
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="images/HistoriaIndex.png" class="card-img-top" alt="...">
+      <img src="src/images/HistoriaIndex.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Historia</h5>
         <p class="card-text">Descubre nuestra rica historia y la evolución de nuestro compromiso con la salud y el bienestar. Desde nuestros inicios hasta hoy, hemos estado dedicados a tu cuidado integral.</p>
@@ -131,7 +97,7 @@
       </div>
     </div>
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="images/otrosIndex.png" class="card-img-top" alt="...">
+      <img src="src/images/otrosIndex.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Otros</h5>
         <p class="card-text">Explora una amplia gama de servicios diseñados para mejorar tu bienestar. Desde tratamientos especializados hasta programas de apoyo, estamos aquí para satisfacer tus necesidades individuales.</p>
@@ -139,73 +105,4 @@
       </div>
       </div>
   </div>
-
-
-  <!--Pie de Página-->
-  <!-- Footer -->
-<footer class="bg-dark text-center text-white">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <section class="social">
-        <p>Siguenos en nuestras redes</p>
-        <div class="links">
-            <a href="#">Facebook<i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#">Instagram<i class="fab fa-instagram-f"></i>
-            </a>
-            <a href="#">Linkedin<i class="fab fa-linkedin-f"></i>
-            </a>
-        </div>
-    </section>
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Form -->
-    <section class="">
-      <form action="">
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Datos de los Estudiantes:</strong>
-            </p>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
-    </section>
-    <!-- Section: Form -->
-
-    <!-- Section: Text -->
-    <section class="mb-4">
-      <p>
-        Rafael Estrada Guzmán, 202145331
-      </p>
-      <p>
-        Jorge David Quezada Calel, 202145439
-      </p>
-    </section>
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(180, 179, 179, 0.2);">
-    © 2023 Copyright
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-
-</html>
+  {% endblock %}

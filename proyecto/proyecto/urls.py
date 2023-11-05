@@ -23,8 +23,14 @@ from Doctor import views as Doctor
 from Admin import views as Admin
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('', Inicio.hello),
+
+    path('', Inicio.Inicio, name = "Inicio"),
+    path('Historia/', Inicio.Historia, name = "Historia"),
+    path('Formulario/', Inicio.Formulario, name = "Formulario"),
+    path('Contacto/', Inicio.Contacto, name = "Contacto"),
+
     path('login/', Login.registrar_usuario),
     path('Paciente/', Paciente.Consulta, name="pacienteInicio"),
     path('Paciente/Perfil/', Paciente.Perfil, name="pacientePerfil"),
