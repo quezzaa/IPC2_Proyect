@@ -31,7 +31,9 @@ urlpatterns = [
     path('Formulario/', Inicio.Formulario, name = "Formulario"),
     path('Contacto/', Inicio.Contacto, name = "Contacto"),
 
-    path('login/', Login.registrar_usuario),
+    path('login/', Login.LogIn, name="Login"),
+    path('login/pacientes/', Login.registrar_paciente, name="RegisterPacientes"),
+    path('login/doctores/', Login.registrar_doctor, name="RegisterDoctores"),
     path('Paciente/', Paciente.Consulta, name="pacienteInicio"),
     path('Paciente/Perfil/', Paciente.Perfil, name="pacientePerfil"),
     path('Doctor/', Doctor.Consultas, name="doctorInicio"),
