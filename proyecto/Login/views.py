@@ -14,7 +14,7 @@ def registrar_usuario(request):
         form = RegistroForm(request.POST)
         return render(request, 'Register-Paciente.html', {"form": form})
     else:
-
+        
         if request.POST["contraseña"] == request.POST["confirmar_contraseña"]:
             try:
                 usuario = User.objects.create_user(
@@ -31,5 +31,5 @@ def registrar_usuario(request):
                 return redirect('pacienteInicio')
             except IntegrityError:
                 return render(request, 'Register-Paciente.html', {"form": form, "error": "Paciente ya existe."})
-
+            
         return render(request, 'Register-Paciente.html', {"form": form, "error": "Las contraseñas no coinciden"})
