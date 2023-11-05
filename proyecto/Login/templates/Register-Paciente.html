@@ -1,6 +1,15 @@
-{{error}}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Registrarse</button>
-</form>
+{% extends 'Register-General.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Registro Pacientes</h1>
+    {{ error }}
+    <form method="post" class="d-flex justify-content-center  mb-3">
+        {% csrf_token %}
+        <div class="text-center">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Registrarse</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

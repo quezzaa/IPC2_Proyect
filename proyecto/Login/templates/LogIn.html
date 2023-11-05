@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center">Registro Doctores</h1>
+    <h1 class="text-center">Iniciar Sesion</h1>
     {{ error }}
-    <form method="post" class="d-flex justify-content-center  mb-3">
+    <form method="post" class="d-flex justify-content-center mb-3">
         {% csrf_token %}
         <div class="text-center">
             {{ form.as_p }}
