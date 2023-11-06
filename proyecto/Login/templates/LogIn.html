@@ -1,14 +1,16 @@
 {% extends 'Register-General.html' %}
 
 {% block content %}
-<div class="container">
+<br>
+<div class="container" style="border-radius: 35px; background-color: rgb(231, 237, 167); width: 50%;">
     <h1 class="text-center">Iniciar Sesion</h1>
-    {{ error }}
+    <hr>
+    <h5 class="text-center">{{ error }}</h5>
     <form method="post" class="d-flex justify-content-center mb-3">
         {% csrf_token %}
         <div class="text-center">
             {{ form.as_p }}
-            <button type="submit" class="btn btn-secondary">Registrarse</button>
+            <button type="submit" class="btn btn-secondary mb-3">Iniciar Sesión</button>
         </div>
     </form>
 </div>

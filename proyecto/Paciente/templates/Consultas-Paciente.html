@@ -6,7 +6,10 @@
         <div class="col-md-6 mb-2" style="background-color:rgb(220, 234, 234); border-radius: 20px;">
             <h2 class="text-center mb-2">Consultas</h2>
             <div class="d-flex justify-content-end align-items-end mb-1">
-                <button class="btn btn-warning"><i class="bi bi-plus-lg" style="font-size: large;"></i>Nueva Consulta</button>
+                {{error}}
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#nuevaConsultaModal">
+                    <i class="bi bi-plus-lg" style="font-size: large;"></i> Nueva Consulta
+                </button>
             </div>
             <hr>
             <div class="container mb-2" style="border: 1px solid #000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); border-radius: 20px; padding: 3%; background-color: aliceblue;">
@@ -19,15 +22,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for C in CPSin %}
                         <tr class="text-center">
-                            <td>1</td>
-                            <td>2023-11-03</td>
+                            <td>{{C.idConsulta}}</td>
+                            <td>{{C.fecha_consulta}}</td>
                             <td>
                                 <button class="btn btn-success" data-toggle="modal" data-target="#modalInfo"><i class="bi bi-info-circle"></i>Ver más</button>
                                 <button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button>
                                 <button class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
                             </td>
                         </tr>
+                        {% endfor %}
                         <!-- Agrega más filas para más consultas -->
                     </tbody>
                 </table>
@@ -60,6 +65,30 @@
                         <!-- Agrega más filas para más consultas -->
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="nuevaConsultaModal" tabindex="-1" aria-labelledby="nuevaConsultaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="nuevaConsultaModalLabel">Nueva Consulta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" class="d-flex justify-content-center  mb-3">
+                    {% csrf_token %}
+                    <div class="text-center">
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-secondary mb-3">Publicar Consulta</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

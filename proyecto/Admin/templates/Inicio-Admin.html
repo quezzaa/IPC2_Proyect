@@ -26,9 +26,6 @@
                   <a class="nav-link" href="{% url 'adminInicio' %}"><i class="bi bi-house-heart"></i>Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'adminConsultas' %}"><i class="bi bi-file-earmark-text"></i>Consultas</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="{% url 'adminPacientes' %}"><i class="bi bi-person-heart"></i>Registro Pacientes</a>
                 </li>
                 <li class="nav-item">
@@ -39,7 +36,7 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="/"><i class="bi bi-door-open"></i>Logout</a>
+                  <a class="nav-link" href="{% url 'Logout' %}"><i class="bi bi-door-open"></i>Logout</a>
                 </li>
                 {% endif %}
               </ul>

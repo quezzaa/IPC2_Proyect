@@ -3,20 +3,40 @@
 {% block content %}
 <div class="container" style="padding: 2%;">
     <div class="container">
-        <div class="mb-2" style="background-color:rgb(220, 234, 234); border-radius: 20px;">
+        <div class="mb-2" style="background-color:rgb(231, 214, 151); border-radius: 20px;">
             <h2 class="text-center mb-2">Perfil - Información</h2>
             <hr>
             <div style="padding: 3%;">
                 <div class="container mb-2 justify-content-center" style="border-radius: 20px; padding: 3%; background-color: aliceblue;">
-                    <p>Ejemplo</p>
-                    <p>Ejemplo</p>
-                    <p>Ejemplo</p>
-                    <p>Ejemplo</p>
-                    <p>Ejemplo</p>
-                    <p>Ejemplo</p>
-                </div>
-                <div class="d-flex justify-content-end align-items-end mb-1">
-                    <button class="btn btn-secondary"><i class="bi bi-pencil-square"></i>Editar</button>
+                    <form>
+                        <div class="form-group">
+                            <label for="usuario">Usuario</label>
+                            <input type="text" class="form-control" id="usuario" value="{{info.usuario}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" value="{{info.nombre}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="colegiado">Colegiado</label>
+                            <input type="text" class="form-control" id="colegiado" value="{{info.colegiado}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="especialidad">Especialidad</label>
+                            <input type="text" class="form-control" id="especialidad" value="{{info.especialidad}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="text" class="form-control" id="telefono" value="{{info.telefono}}">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="text" class="form-control" id="contrasena" value="{{info.contraseña}}">
+                        </div>
+                        <div class="d-flex justify-content-end align-items-end mb-1">
+                            <button class="btn btn-secondary" type="submit"><i class="bi bi-pencil-square"></i>Editar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

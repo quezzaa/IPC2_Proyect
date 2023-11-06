@@ -1,4 +1,5 @@
 {% extends 'tmp.html' %}
+{% load static %}
 
 {% block content %}
   <!--Historia desgarradora-->
@@ -9,14 +10,14 @@
       <p class="lead"></p>
     </div>
   </div>
-  <center><img src="images/HistoriaImagen1.png" width="auto" height="800" ></center>
+  <center><img src="{% static 'images/HistoriaImagen1.png' %}" width="auto" height="800" ></center>
   <div class="jumbotron jumbotron-fluid" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
     <div class="container">
       <p class="lead">Un fatídico día, una epidemia devastadora golpeó el pueblo. Elena se encontró en la primera línea de batalla, luchando incansablemente para salvar vidas. A pesar de sus esfuerzos, muchas personas perdieron la vida, incluyendo a seres queridos de Elena. La tragedia la dejó profundamente marcada y con un sentimiento de impotencia que nunca había experimentado antes.</p>
       <p class="lead">Después de la epidemia, Elena decidió que no podía permitir que algo así volviera a suceder. Se propuso crear un lugar donde la atención médica no solo se centrara en el tratamiento de enfermedades, sino en la prevención y el bienestar integral de las personas. Así nació la idea de "La eterna Primavera".</p>
     </div>
   </div>
-  <center><img src="images/Historia Imagen2.png" width="auto" height="800" ></center>
+  <center><img src="{% static 'images/Historia Imagen2.png' %}" width="auto" height="800" ></center>
 
   <div class="jumbotron jumbotron-fluid" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
     <div class="container">
@@ -25,5 +26,5 @@
       <p class="lead">La razón de la creación de "La eterna Primavera" es una historia desgarradora, pero también es una historia de coraje, determinación y amor por la humanidad. Elena y su equipo han convertido la tragedia en una fuente de inspiración para ayudar a las personas a vivir vidas más saludables y felices. Su legado perdura en cada vida que tocan y en cada flor que florece en los jardines que rodean la clínica.</p>
     </div>
   </div>
-  <center><img src="images/HistoriaImagen3.png" width="auto" height="800" ></center>
+  <center><img src="{% static 'images/HistoriaImagen3.png' %}" width="auto" height="800" ></center>
   {% endblock %}

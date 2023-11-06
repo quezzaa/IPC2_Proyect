@@ -11,49 +11,51 @@ from django.http import HttpResponse
 
 def registrar_paciente(request):
     if request.method == 'GET':
-        form = RegistroPaciente(request.POST)
+        form = PacienteForm(request.POST)
         return render(request, 'Register-Paciente.html', {"form": form})
     else:
-        
-        if request.POST["contraseña"] == request.POST["confirmar_contraseña"]:
+        form = PacienteForm(request.POST)
+        if request.POST["contraseña"] and request.POST["usuario"]:
             try:
-                usuario = User.objects.create_user(
-                    usuario = form.cleaned_data['usuario'],
-                    nombre = form.cleaned_data['nombre'],
-                    dpi = form.cleaned_data['dpi'],
-                    telefono = form.cleaned_data['telefono'],
-                    direccion = form.cleaned_data['direccion'],
-                    fecha_nacimiento = form.cleaned_data['fecha_nacimiento'],
-                    contraseña = form.cleaned_data['contraseña']
-                )
-                usuario.save()
-                login(request, usuario)
-                return redirect('pacienteInicio')
+                username = request.POST["usuario"]
+                password = request.POST["contraseña"]
+
+                # Crear un usuario con el formulario
+                paciente = form.save(commit=False)
+                paciente.role = '3' 
+
+                user = User.objects.create_user(username=username, password=password)
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    paciente.save()
+                    login(request, user) 
+                    return redirect('pacienteInicio')
             except IntegrityError:
                 return render(request, 'Register-Paciente.html', {"form": form, "error": "Paciente ya existe."})
             
-        return render(request, 'Register-Paciente.html', {"form": form, "error": "Las contraseñas no coinciden"})
+        return render(request, 'Register-Paciente.html', {"form": form, "error": "Contraseña o Usuario Invalidos"})
     
 def registrar_doctor(request):
     if request.method == 'GET':
-        form = RegistroDoctor(request.POST)
+        form = DoctorForm(request.POST)
         return render(request, 'Register-Doctor.html', {"form": form})
     else:
-        
-        if request.POST["contraseña"] == request.POST["confirmar_contraseña"]:
+        form = DoctorForm(request.POST)
+        if request.POST["contraseña"] and request.POST["usuario"]:
             try:
-                usuario = User.objects.create_user(
-                    usuario = form.cleaned_data['usuario'],
-                    nombre = form.cleaned_data['nombre'],
-                    dpi = form.cleaned_data['dpi'],
-                    telefono = form.cleaned_data['telefono'],
-                    direccion = form.cleaned_data['direccion'],
-                    fecha_nacimiento = form.cleaned_data['fecha_nacimiento'],
-                    contraseña = form.cleaned_data['contraseña']
-                )
-                usuario.save()
-                login(request, usuario)
-                return redirect('doctorInicio')
+                username = request.POST["usuario"]
+                password = request.POST["contraseña"]
+
+                # Crear un usuario con el formulario
+                doctor = form.save(commit=False)
+                doctor.role = '2' 
+
+                user = User.objects.create_user(username=username, password=password)
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    doctor.save()
+                    login(request, user) 
+                    return redirect('doctorInicio')
             except IntegrityError:
                 return render(request, 'Register-Doctor.html', {"form": form, "error": "Doctor ya existe."})
             
@@ -61,24 +63,32 @@ def registrar_doctor(request):
     
 def LogIn(request):
     if request.method == 'GET':
-        form = LoginForm(request.POST)
-        return render(request, 'LogIn.html', {"form": form})
+        return render(request, 'LogIn.html', {"form": AuthenticationForm})
     else:
-        
-        if request.POST["usuario"] and request.POST["contraseña"]:
+        user = authenticate(request, username = request.POST['username'], password = request.POST['password'])
+        if user is None:
+            return render(request, 'LogIn.html',{"form": AuthenticationForm, "error": "Contraseña o Usuario incorrecto"})
+        else:
+            userL = User.objects.get(username= request.POST['username'])
             try:
-                usuario = User.objects.create_user(
-                    usuario = form.cleaned_data['usuario'],
-                    contraseña = form.cleaned_data['contraseña']
-                )
-                usuario.save()
-                login(request, usuario)
+                paciente = Paciente.objects.get(usuario=userL)
+                login(request, user) 
                 return redirect('pacienteInicio')
-            except IntegrityError:
-                return render(request, 'LogIn.html', {"form": form, "error": "Usuario no encontrado."})
-            
-        return render(request, 'LogIn.html', {"form": form, "error": "Usuario o contraseña incorrectos"})
-    
+            except Paciente.DoesNotExist:
+                paciente = None
+                try:
+                    doctor = Doctor.objects.get(usuario=userL)
+                    login(request, user) 
+                    return redirect('doctorInicio')
+                except Doctor.DoesNotExist:
+                    doctor = None
+                    try:
+                        admin = Admin.objects.get(usuario=userL)
+                        login(request, user) 
+                        return redirect('adminInicio')
+                    except Admin.DoesNotExist:
+                        admin = None
+
 def Logout(request):
     logout(request)
-    redirect('')
+    redirect('Login')

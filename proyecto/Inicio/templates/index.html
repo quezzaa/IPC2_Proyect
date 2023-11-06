@@ -1,4 +1,5 @@
 {% extends 'tmp.html' %}
+{% load static %}
 
 {% block content %}
   <!--Carrusel de Imagenes-->
@@ -10,13 +11,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="src/images/Carrusel1.png" class="d-block w-100" alt="...">
+        <img src="{% static 'images/Carrusel1.png' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="src/images/Carrusel2.png" class="d-block w-100" alt="...">
+        <img src="{% static 'images/Carrusel2.png' %}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="src/images/Carrusel3.png" class="d-block w-100" alt="...">
+        <img src="{% static 'images/Carrusel3.png' %}" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -70,7 +71,7 @@
   <!--Cartas 2-->
   <div class="card-group text-center" >
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="src/images/Registrate.png" class="card-img-top" alt="...">
+      <img src="{% static 'images/Registrate.png' %}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Formulario</h5>
         <p class="card-text">Completa nuestro sencillo y seguro formulario de registro para acceder a una experiencia personalizada. Únete a nuestra comunidad y comienza tu viaje hacia el bienestar.</p>
@@ -79,7 +80,7 @@
       </div>
     </div>
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="src/images/ConcatoIdex.png" class="card-img-top" alt="...">
+      <img src="{% static 'images/ConcatoIdex.png' %}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Conacto</h5>
         <p class="card-text">Conéctate con nosotros a través de nuestro formulario de contacto. Estamos aquí para responder tus preguntas y brindarte el apoyo que necesitas. ¡Esperamos escucharte pronto!</p>
@@ -88,7 +89,7 @@
       </div>
     </div>
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="src/images/HistoriaIndex.png" class="card-img-top" alt="...">
+      <img src="{% static 'images/HistoriaIndex.png' %}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Historia</h5>
         <p class="card-text">Descubre nuestra rica historia y la evolución de nuestro compromiso con la salud y el bienestar. Desde nuestros inicios hasta hoy, hemos estado dedicados a tu cuidado integral.</p>
@@ -97,7 +98,7 @@
       </div>
     </div>
     <div class="card" style="background-color: rgb(252, 252, 252); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-      <img src="src/images/otrosIndex.png" class="card-img-top" alt="...">
+      <img src="{% static 'images/otrosIndex.png' %}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Otros</h5>
         <p class="card-text">Explora una amplia gama de servicios diseñados para mejorar tu bienestar. Desde tratamientos especializados hasta programas de apoyo, estamos aquí para satisfacer tus necesidades individuales.</p>

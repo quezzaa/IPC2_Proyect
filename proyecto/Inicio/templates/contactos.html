@@ -1,11 +1,12 @@
 {% extends 'tmp.html' %}
+{% load static %}
 
 {% block content %}
   <!--Datos y conacto-->
   <div class="card mb-3" style="max-width: auto;">
     <div class="row g-0" style="background-color: rgb(252, 252, 252); font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
       <div class="col-md-4">
-        <img src="images/Contacto.png" class="img-fluid rounded-start" alt="...">
+        <img src="{% static 'images/Contacto.png' %}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">

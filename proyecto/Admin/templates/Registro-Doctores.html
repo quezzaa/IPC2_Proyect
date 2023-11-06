@@ -1,7 +1,39 @@
 {% extends 'Inicio-Admin.html' %}
 
 {% block content %}
-<div>
-    <h1>Registro Doctores</h1>
+<br>
+<div class="container" style="background-color:rgb(231, 237, 167); border-radius: 20px; padding: 2%;">
+    <h2 class="text-center mb-4">Registro Doctores</h2>
+    <br>
+    <div class="d-flex justify-content-end align-items-end mb-1">
+    </div>
+    <hr>
+    <div class="container mb-2" style="border: 1px solid #000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); border-radius: 20px; padding: 3%; background-color: aliceblue;">
+        <table class="table table-striped table-hover mb-2">
+            <thead>
+                <tr class="text-center">
+                    <th>id Doctor</th>
+                    <th>Nombre</th>
+                    <th>Colegiado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for D in Doctores %}
+                <tr class="text-center">
+                    <td>{{D.idDoctor}}</td>
+                    <td>{{D.nombre}}</td>
+                    <td>{{D.colegiado}}</td>
+                    <td>
+                        <button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button>
+                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+                <!-- Agrega más filas para más consultas -->
+            </tbody>
+        </table>
+    </div>
 </div>
+<br>
 {% endblock %}
