@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from Login.models import Paciente, Doctor, Admin
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import User
 
 class Consulta(models.Model):
     idConsulta = models.AutoField(primary_key=True)
@@ -17,3 +19,8 @@ class Consulta(models.Model):
 
     def __str__(self):
         return self.idConsulta, self.idPaciente, self.idDoctor, self.fecha_consulta, self.razon_visita, self.diagnostico, self.receta, self.estado_consulta
+    
+class CustomUserForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']

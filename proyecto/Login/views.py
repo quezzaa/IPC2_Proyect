@@ -61,6 +61,34 @@ def registrar_doctor(request):
             
         return render(request, 'Register-Doctor.html', {"form": form, "error": "Las contraseñas no coinciden"})
     
+
+def registrar_admin(request):
+    if request.method == 'GET':
+        form = AdminForm(request.POST)
+        return render(request, 'Register-Admin.html', {"form": form})
+    else:
+        form = AdminForm(request.POST)
+        if request.POST["contraseña"] and request.POST["usuario"]:
+            try:
+                username = request.POST["usuario"]
+                password = request.POST["contraseña"]
+
+                # Crear un usuario con el formulario
+                admin = form.save(commit=False)
+                admin.role = '1' 
+
+                user = User.objects.create_user(username=username, password=password)
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    admin.save()
+                    login(request, user) 
+                    return redirect('adminInicio')
+            except IntegrityError:
+                return render(request, 'Register-Admin.html', {"form": form, "error": "Admin ya existe."})
+            
+        return render(request, 'Register-Admin.html', {"form": form, "error": "Las contraseñas no coinciden"})
+    
+    
 def LogIn(request):
     if request.method == 'GET':
         return render(request, 'LogIn.html', {"form": AuthenticationForm})

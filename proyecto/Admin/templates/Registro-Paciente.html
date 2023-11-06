@@ -25,8 +25,12 @@
                     <td>{{P.nombre}}</td>
                     <td>{{P.dpi}}</td>
                     <td>
-                        <button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button>
-                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
+                        <form action="{% url 'adminPacientesIndividual' P.idPaciente %}" method="POST">
+                            {% csrf_token %}
+                            <div class="d-flex justify-content-end align-items-end mb-1">
+                                <button class="btn btn-danger" type="submit"><i class="bi bi-pencil-square"></i>Eliminar</button>
+                            </div>
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}

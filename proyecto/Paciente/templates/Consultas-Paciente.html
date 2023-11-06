@@ -27,9 +27,7 @@
                             <td>{{C.idConsulta}}</td>
                             <td>{{C.fecha_consulta}}</td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#modalInfo"><i class="bi bi-info-circle"></i>Ver más</button>
-                                <button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button>
-                                <button class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
+                                <a href="{% url 'pacienteConsultaIndividual' C.idConsulta %}"><button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button></a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -53,15 +51,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for R in CPRes %}
                         <tr class="text-center">
-                            <td>1</td>
-                            <td>Dr. Smith</td>
-                            <td>2023-11-03</td>
+                            <td>{{R.idConsulta}}</td>
+                            <td>{{R.idDoctor.nombre}}</td>
+                            <td>{{R.fecha_consulta}}</td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#modalInfo"><i class="bi bi-info-circle"></i>Ver más</button>
-                                <button class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
+                                <a href="{% url 'pacienteConsultaIndividualRes' R.idConsulta %}"><button class="btn btn-success"><i class="bi bi-info-circle"></i>Ver más</button></a>
                             </td>
                         </tr>
+                        {% endfor %}
                         <!-- Agrega más filas para más consultas -->
                     </tbody>
                 </table>

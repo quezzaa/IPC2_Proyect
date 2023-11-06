@@ -26,9 +26,6 @@
                   <a class="nav-link" href="{% url 'doctorInicio' %}"><i class="bi bi-house-heart"></i>Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'doctorConsultas' %}"><i class="bi bi-file-earmark-text"></i>Ver Consultas Resueltas</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="{% url 'doctorPerfil' %}"><i class="bi bi-person-circle"></i>Perfil</a>
                 </li>
                 {% if user.is_authenticated %}

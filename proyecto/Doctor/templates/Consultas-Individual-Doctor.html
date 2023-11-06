@@ -1,17 +1,22 @@
-{% extends 'Inicio-Paciente.html' %}
+{% extends 'Inicio-Doctor.html' %}
 
 {% block content %}
 <div class="container" style="padding: 2%;">
     <div class="container">
-        <div class="mb-2" style="background-color:rgb(220, 234, 234); border-radius: 20px;">
-            <h2 class="text-center mb-2">Perfil - Información</h2>
+        <div class="mb-2" style="background-color:rgb(231, 214, 151); border-radius: 20px;">
+            <h2 class="text-center mb-2">Consulta - Información</h2>
             <hr>
             <div style="padding: 3%;">
                 <div class="container mb-2 justify-content-center" style="border-radius: 20px; padding: 3%; background-color: aliceblue;">
-                <form method="POST">
+                <h5>Nombre Paciente:</h5>
+                <h6>{{InfoConsulta.idPaciente.nombre}}</h6>
+                <h5>Razón Visita:</h5>
+                <h6>{{InfoConsulta.razon_visita}}</h6>
+                <h5>Fecha de Creación:</h5>
+                <h6>{{InfoConsulta.fecha_consulta}}</h6>
+                <form method="POST" class="text-center">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <p>**Cuando se editen los datos se cerrara la sesión  </p>
                     <div class="d-flex justify-content-end align-items-end mb-1">
                         <button class="btn btn-secondary" type="submit"><i class="bi bi-pencil-square"></i>Editar</button>
                     </div>

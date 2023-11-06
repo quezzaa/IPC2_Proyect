@@ -8,19 +8,10 @@
             <hr>
             <div style="padding: 3%;">
                 <div class="container mb-2 justify-content-center" style="border-radius: 20px; padding: 3%; background-color: aliceblue;">
-                    <form>
-                        <div class="form-group">
-                            <label for="usuario">Usuario</label>
-                            <input type="text" class="form-control" id="usuario" value="{{info.usuario}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" value="{{info.nombre}}">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="contrasena">Contraseña</label>
-                            <input type="text" class="form-control" id="contrasena" value="{{info.contraseña}}">
-                        </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <p>**Cuando se editen los datos se cerrara la sesión  </p>
                         <div class="d-flex justify-content-end align-items-end mb-1">
                             <button class="btn btn-secondary" type="submit"><i class="bi bi-pencil-square"></i>Editar</button>
                         </div>

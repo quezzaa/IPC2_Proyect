@@ -26,7 +26,7 @@
                             <td>{{C.fecha_consulta}}</td>
                             <td>{{C.idPaciente.nombre}}</td>
                             <td>
-                                <button class="btn btn-info"><i class="bi bi-pencil-square"></i>Responder</button>
+                                <a href="{% url 'doctorConsultaIndividual' C.idConsulta %}"><button class="btn btn-info"><i class="bi bi-pencil-square"></i>Responder</button></a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -56,7 +56,7 @@
                             <td>{{R.idPaciente.nombre}}</td>
                             <td>{{R.fecha_consulta}}</td>
                             <td>
-                                <button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button>
+                                <a href="{% url 'doctorConsultaIndividual' R.idConsulta %}"><button class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</button></a>
                             </td>
                         </tr>
                         {% endfor %}

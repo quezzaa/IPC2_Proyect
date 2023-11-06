@@ -31,18 +31,35 @@ urlpatterns = [
     path('Historia/', Inicio.Historia, name = "Historia"),
     path('Formulario/', Inicio.Formulario, name = "Formulario"),
     path('Contacto/', Inicio.Contacto, name = "Contacto"),
+
     path('login/', Login.LogIn, name="Login"),
     path('login/pacientes/', Login.registrar_paciente, name="RegisterPacientes"),
     path('login/doctores/', Login.registrar_doctor, name="RegisterDoctores"),
+    path('login/admin/', Login.registrar_admin, name="RegisterAdministradores"),
+
     path('Paciente/', Paciente.Consultas, name="pacienteInicio"),
     path('Paciente/Perfil/', Paciente.Perfil, name="pacientePerfil"),
-    path('Doctor/', Doctor.Consultas, name="doctorInicio"),
+
+    path('Paciente/<int:idConsulta>/', Paciente.ConsultaIndividual, name="pacienteConsultaIndividual"),
+    path('Paciente/Respondidas/<int:idConsulta>/', Paciente.ConsultaIndividualRes, name="pacienteConsultaIndividualRes"),
+    path('Paciente/eliminar/<int:idConsulta>/', Paciente.eliminar_consulta, name="eliminarConsultaPaciente"),
+
+    path('Doctor/', Doctor.Consultas, name="doctorInicio"), 
     path('Doctor/Perfil/', Doctor.Perfil, name="doctorPerfil"),
-    path('Doctor/Consultas-Respondidas/', Doctor.ConsultasResueltas, name="doctorConsultas"),
-    path('Admin/', Admin.Consultas, name="adminInicio"),
+
+    path('Doctor/<int:idConsulta>/', Doctor.ConsultaIndividual, name="doctorConsultaIndividual"),
+
     path('Admin/Perfil/', Admin.Perfil, name="adminPerfil"),
     path('Admin/Registro-Pacientes/', Admin.Registro_Pacientes, name="adminPacientes"),
     path('Admin/Registro-Doctores/', Admin.Registro_Doctores, name="adminDoctores"),
+    path('Admin/', Admin.Consultas, name="adminInicio"),
+
+    path('Admin/eliminar/<int:idConsulta>/', Admin.eliminar_consulta, name="eliminarConsultaAdmin"),
+    path('Admin/Consulta/<int:idConsulta>/', Admin.Ver_consulta, name="adminConsultaIndividual"),
+
+    path('Admin/Registro-Pacientes/<int:idPaciente>/', Admin.eliminar_paciente, name="adminPacientesIndividual"),
+    path('Admin/Registro-Doctores/<int:idDoctor>/', Admin.eliminar_doctor, name="adminDoctoresIndividual"),
+
     path('login/', Login.Logout, name="Logout"),
     
 ]

@@ -1,0 +1,17 @@
+{% extends 'Register-General.html' %}
+
+{% block content %}
+<br>
+<div class="container" style="border-radius: 35px; background-color: rgb(231, 214, 151); width: 50%;">
+    <h1 class="text-center">Registro Admin</h1>
+    <hr>
+    {{ error }}
+    <form method="post" class="d-flex justify-content-center  mb-3">
+        {% csrf_token %}
+        <div class="text-center">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary mb-3">Registrarse</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
